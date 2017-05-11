@@ -1,5 +1,5 @@
 <template>
-    <el-row :class="{showsmamenu: getShowMenu,unshowsmamenu:!getShowMenu}">
+    <el-row :class="{showsmamenu: showMenu,unshowsmamenu:!showMenu}">
         <el-col :span="24">
             <el-menu @select="menuSelect" default-active="teachermanage">
                 <el-submenu index="1">
@@ -38,9 +38,9 @@
 <script>
     export default {
         computed: {
-            getShowMenu(){
-                return this.$store.getters.commConf.ShowMenu;
-            }
+            showMenu(){
+                return  this.$store.getters.showMenu;
+            },
         },
         methods: {
             menuSelect(val){

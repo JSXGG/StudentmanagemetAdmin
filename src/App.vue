@@ -12,12 +12,10 @@
 </template>
 <script>
     import Hearderbar from './components/Header/Header.vue'
-    import Loadingbar from './components/loading/Loading.vue'
     import Smamenu from './components/Smamenu/Smamenu.vue'
     export default {
         components: {
             Hearderbar,
-            Loadingbar,
             Smamenu
         },
         data(){
@@ -25,7 +23,7 @@
         },
         computed: {
             getShowMenu(){
-                return this.$store.getters.commConf.ShowMenu;
+                return this.$store.getters.showMenu;
             }
         }
     }

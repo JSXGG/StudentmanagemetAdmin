@@ -3,7 +3,7 @@
         <el-row>
             <el-col :span="20">
                 <div style="color: white;height: 60px;line-height: 60px;font-size: 20px;margin-left: 20px">
-                    萧萧学生管理
+                    {{Title}}
                 </div>
             </el-col>
             <el-col :span="3">
@@ -37,7 +37,18 @@
         },
         computed: {
             showMenu(){
-                return this.$store.getters.commConf.ShowMenu;
+                return  this.$store.getters.showMenu;
+            },
+            BaseInfo(){
+                return this.$store.getters.baseinfo;
+            },
+            Title(){
+                if(this.BaseInfo&&this.BaseInfo.schoolinfo){
+                    return this.BaseInfo.schoolinfo.name+''+'学生管理后台';
+                }
+                else {
+                    return '萧萧学生管理系统'
+                }
             }
         },
         methods: {
@@ -45,9 +56,9 @@
                 console.log(key, keyPath);
             },
             clickOntheMenuBtn(){
-                let ShowMenu = this.$store.getters.commConf.ShowMenu;
+                let Show = this.$store.getters.showMenu;
                 this.$store.commit('COMM_CONF', {
-                    ShowMenu: !ShowMenu
+                    ShowMenu:!Show
                 });
             },
             clickOntheEnter(){

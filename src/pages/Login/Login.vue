@@ -37,24 +37,30 @@
 </style>
 <script>
     import {Loading} from 'element-ui';
+    import userservice from 'service/userservice'
+    const Services = new userservice();
     export default{
         data(){
             return {
                 model: {
-                    username: '',
-                    password: ''
+                    username: 'baird',
+                    password: '123'
                 }
             }
         },
         methods: {
             onSubmit(){
-                let options = {text:'登录中...',fullscreen: true}
+                let options = {text: '登录中...', fullscreen: true}
                 let loadingInstance = Loading.service(options);
                 let that = this;
-                setTimeout(()=> {
-                    loadingInstance.close();
-                    that.$router.push({name:'teachermanage'})
-                }, 1000);
+                Services.adminLogin(this.model)
+                    .then(function (ret) {
+                        loadingInstance.close();
+                        if (ret.result == '1') {
+                            that.$router.push({name: 'teachermanage'})
+                            Services.am_getschoolinfo()
+                        }
+                    })
             }
         },
         components: {}

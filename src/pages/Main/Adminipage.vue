@@ -24,7 +24,6 @@
     import pageMinxins from '../../mixins/page.mixins';
     import {Loading} from 'element-ui';
     import {Notification} from 'element-ui';
-    import Service from 'service/user.serve'
     export default{
         mixins: [pageMinxins],
         data(){
