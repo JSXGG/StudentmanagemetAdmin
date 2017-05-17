@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-dialog :title="title" :visible.sync="visible" :before-close="handleClose">
-            <el-form :model="form">
+            <el-form>
                 <el-form-item label="班级名称" :label-width="formLabelWidth">
                     <el-input v-model="data.name" auto-complete="off"></el-input>
                 </el-form-item>
@@ -17,19 +17,15 @@
                 <el-button type="primary" @click="enter">确 定</el-button>
             </div>
         </el-dialog>
+
     </div>
 </template>
-<style>
-    body {
-        background-color: #ff0000;
-    }
-</style>
 <script>
     import classmanageservice from 'service/classmanageservice'
     const Services = new classmanageservice();
     import {Loading} from 'element-ui';
     export default {
-        name: 'Classinput',
+        name: 'Teacherinput',
         props: {
             visible: {
                 type: Boolean,
@@ -88,16 +84,6 @@
         },
         data() {
             return {
-                form: {
-                    name: '',
-                    region: '',
-                    date1: '',
-                    date2: '',
-                    delivery: false,
-                    type: [],
-                    resource: '',
-                    desc: ''
-                },
                 formLabelWidth: '120px'
             };
         }
