@@ -25,7 +25,7 @@
                 </template>
             </el-table-column>
         </el-table>
-        <Teacherinput :data="currentData" :visible.async="showDialog" @classinputEvent="classinputEvent"></Teacherinput>
+        <Teacherinput :data="currentData" :visible.async="showDialog" @teacherinputEvent="classinputEvent"></Teacherinput>
     </div>
 </template>
 <script>
@@ -46,38 +46,45 @@
             Teacherinput
         },
         mounted(){
-            var that = this;
-            Services.am_getalltheteacher().then(function (ret) {
-                if (ret && ret.data) {
-                    ret.data.forEach(function (item) {
-                        item.createtime = moment.unix(item.createtime).format('YYYY-MM-DD')
-                        if (item.state == '1') {
-                            item.state = '正常'
-                        }
-                        else {
-                            item.state = '已离职'
-                        }
-                        if (item.permission == '2') {
-                            item.permission = '管理员'
-                        }
-                        else {
-                            item.permission = '普通'
-                        }
-                    })
-                    that.tableData = ret.data;
-                }
-            });
+           this.am_getalltheteacher();
         },
         methods: {
+            am_getalltheteacher(){
+                var that = this;
+                Services.am_getalltheteacher().then(function (ret) {
+                    if (ret && ret.data) {
+                        ret.data.forEach(function (item) {
+                            item.createtime = moment.unix(item.createtime).format('YYYY-MM-DD')
+                            if (item.state == '1') {
+                                item.state = '正常'
+                            }
+                            else {
+                                item.state = '已离职'
+                            }
+                            if (item.permission == '2') {
+                                item.permission = '管理员'
+                            }
+                            else {
+                                item.permission = '普通'
+                            }
+                        })
+                        that.tableData = ret.data;
+                    }
+                });
+            },
             handleClick(item) {
                 this.currentData = item;
                 this.showDialog = true;
             },
             classinputEvent(val){
                 this.showDialog = false;
+                if(val){
+                    this.am_getalltheteacher();
+                }
             },
             addTeacher(){
-
+                this.currentData = {};
+                this.showDialog = true;
             }
         },
     }

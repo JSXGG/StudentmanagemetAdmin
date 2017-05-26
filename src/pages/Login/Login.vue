@@ -43,8 +43,8 @@
         data(){
             return {
                 model: {
-                    username: 'baird',
-                    password: '123'
+                    username: '',
+                    password: ''
                 }
             }
         },

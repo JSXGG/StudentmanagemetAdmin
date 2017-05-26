@@ -1,15 +1,19 @@
 <template>
     <div class="staheader">
         <el-row>
-            <el-col :span="20">
+            <el-col :span="18">
                 <div style="color: white;height: 60px;line-height: 60px;font-size: 20px;margin-left: 20px">
                     {{Title}}
                 </div>
             </el-col>
-            <el-col :span="3">
+            <el-col :span="5">
                 <div style="display: flex" @click="clickOnthePerson">
-                    <img src="../../assets/images/teach_icon.png" style="width: 60px;height: 60px">
-                    <div style="margin-left: 10px;line-height: 60px;height: 60px;color: white;font-size: 18px">黄老师</div>
+                    <img src="../../assets/images/teach_icon.png"
+                         style="  position: absolute;right: 160px; width: 60px;height: 60px">
+                    <div
+                        style=" position: absolute;right: 100px; line-height: 60px;height: 60px;color: white;font-size: 18px;overflow: hidden">
+                        黄老师
+                    </div>
                 </div>
             </el-col>
             <el-col :span="1">
@@ -37,14 +41,14 @@
         },
         computed: {
             showMenu(){
-                return  this.$store.getters.showMenu;
+                return this.$store.getters.showMenu;
             },
             BaseInfo(){
                 return this.$store.getters.baseinfo;
             },
             Title(){
-                if(this.BaseInfo&&this.BaseInfo.schoolinfo){
-                    return this.BaseInfo.schoolinfo.name+''+'学生管理后台';
+                if (this.BaseInfo && this.BaseInfo.schoolinfo) {
+                    return this.BaseInfo.schoolinfo.name + '' + '学生管理后台';
                 }
                 else {
                     return '萧萧学生管理系统'
@@ -58,7 +62,7 @@
             clickOntheMenuBtn(){
                 let Show = this.$store.getters.showMenu;
                 this.$store.commit('COMM_CONF', {
-                    ShowMenu:!Show
+                    ShowMenu: !Show
                 });
             },
             clickOntheEnter(){
