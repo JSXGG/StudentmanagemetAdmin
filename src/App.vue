@@ -28,20 +28,5 @@
         }
     }
 </script>
-<style>
-    .showappcontainer {
-        padding: 20px;
-        border-radius: 10px;
-        margin-left: 250px;
-        margin-top: 60px;
-        /*transition: 0.3s;*/
-    }
-    .unshowappcontainer {
-        padding: 20px;
-        margin-left: 0px;
-        margin-top: 60px;
-        height: 100px;
-        /*transition: 0.3s;*/
-    }
-</style>
+
 

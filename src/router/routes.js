@@ -12,7 +12,8 @@ const Test = resolve => require(['../pages/Test/Test'], resolve)
 const Adminipage = resolve => require(['../pages/Main/Adminipage'], resolve)
 const Teachermanage = resolve => require(['../pages/Main/Teachermanage'], resolve)
 const Classmanagement = resolve => require(['../pages/Main/Classmanagement'], resolve)
-
+const Studentmanage = resolve => require(['../pages/Main/Studentmanage'], resolve)
+const Summary = resolve => require(['../pages/Main/Summary'], resolve)
 //路由配置
 /**
  * meta 配置
@@ -31,7 +32,9 @@ const routes = [
         children: [
             {path: 'admin', component: Adminipage, meta: {keepAlive: true}, name: 'adminipage'},
             {path: 'teachermanage', component: Teachermanage, meta: {keepAlive: true}, name: 'teachermanage'},
-            {path: 'classmanagement', component: Classmanagement, meta: {keepAlive: true}, name: 'classmanagement'}
+            {path: 'classmanagement', component: Classmanagement, meta: {keepAlive: true}, name: 'classmanagement'},
+            {path: 'studentmanage', component: Studentmanage, meta: {keepAlive: true}, name: 'studentmanage'},
+            {path: 'summary', component: Summary, meta: {keepAlive: true}, name: 'summary'}
         ]
     },
     {path: '/login', component: Login, meta: {keepAlive: true}, name: 'login'},

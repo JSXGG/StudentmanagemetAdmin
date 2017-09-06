@@ -86,6 +86,6 @@
                 this.currentData = {};
                 this.showDialog = true;
             }
-        },
+        }
     }
 </script>

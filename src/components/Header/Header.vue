@@ -22,7 +22,7 @@
                 </div>
             </el-col>
         </el-row>
-        <el-dialog title="提示" :visible="dialogVisible" size="tiny" :show-close="false" :modal="false">
+        <el-dialog :modal-append-to-body="false"  title="提示" :visible="dialogVisible" size="tiny" :show-close="false" >
             <span>是否退出登录</span>
             <span slot="footer">
             <el-button @click="dialogVisible = false">取 消</el-button>

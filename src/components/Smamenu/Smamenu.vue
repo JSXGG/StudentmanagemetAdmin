@@ -6,6 +6,13 @@
                     <template slot="title">菜单</template>
                     <el-menu-item index="teachermanage">教师管理</el-menu-item>
                     <el-menu-item index="classmanagement">班级管理</el-menu-item>
+                    <el-menu-item index="studentmanage">学生管理</el-menu-item>
+                </el-submenu>
+            </el-menu>
+            <el-menu @select="menuSelect" default-active="teachermanage">
+                <el-submenu index="1">
+                    <template slot="title">汇总</template>
+                    <el-menu-item index="summary">人数汇总</el-menu-item>
                 </el-submenu>
             </el-menu>
         </el-col>
